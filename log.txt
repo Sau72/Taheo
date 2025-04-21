@@ -1,0 +1,27 @@
+South 2
+Z34093␃
+
+South4
+Z32091␃
+C067␃
+
+ACK mode
+
+
+Topcon 2
+Z34093␃
+
+GeoCOM mode
+Leica GSI 3, 4
+gsi mode
+mode - Memory
+
+Mask - Mask2
+
+
+GET/M/WI82/WI81/WI83
+
+SET/102/1
+GET/M/WI21/WI22/WI31
+
+Topcon 2
