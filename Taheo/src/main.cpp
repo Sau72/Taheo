@@ -17,6 +17,28 @@ String X = "0320026";
 String Y = "2675319";
 String L = "00003157";
 
+String zeroPadL() {
+  String padded = L;
+  while (padded.length() < 8) {
+    padded = "0" + padded;
+  }
+  return padded;
+}
+String zeroPadX() {
+  String padded = X;
+  while (padded.length() < 7) {
+    padded = "0" + padded;
+  }
+  return padded;
+}
+String zeroPadY() {
+  String padded = L;
+  while (padded.length() < 7) {
+    padded = "0" + padded;
+  }
+  return padded;
+}
+
 void setup() {
   Serial.begin(115200);
   SerialBT.begin("Taheo"); // Bluetooth device name
@@ -59,13 +81,13 @@ void loop() {
       Serial.println("Sent response: ACK 006␃");
     } 
     else if (btInput == "Z32091") {
-      String response = "?+" + String(L) + "m" + String(Y) + "+" + String(X) + "d+" + String(L) + "*00+00+00062\x03";
+      String response = "?+" + String(zeroPadL()) + "m" + String(zeroPadY()) + "+" + String(zeroPadX()) + "d+" + String(zeroPadL()) + "*00+00+00062\x03";
       SerialBT.println(response);
       Serial.print("Sent response: ");
       Serial.println(response);
     }
     else if (btInput == "Z34093") {
-      String response = "(+" + String(L) + "0m" + String(Y) + "+" + String(X) + "d+" + String(L) + "t00+0000+000**070\x03";
+      String response = "(+" + String(zeroPadL()) + "0m" + String(zeroPadY()) + "+" + String(zeroPadX()) + "0d+" + String(zeroPadL()) + "t00+0000+000**070\x03";
       SerialBT.println(response);
       Serial.print("Sent response: ");
       Serial.println(response);
