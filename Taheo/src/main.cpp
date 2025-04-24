@@ -13,9 +13,9 @@ BluetoothSerial SerialBT;
 
 
 // Variables to store the received values
-String X = "0320026";
-String Y = "2675319";
-String L = "00003157";
+String X = "493015";
+String Y = "880217";
+String L = "00016577";
 
 String zeroPadL() {
   String padded = L;
@@ -32,7 +32,7 @@ String zeroPadX() {
   return padded;
 }
 String zeroPadY() {
-  String padded = L;
+  String padded = Y;
   while (padded.length() < 7) {
     padded = "0" + padded;
   }
@@ -87,7 +87,7 @@ void loop() {
       Serial.println(response);
     }
     else if (btInput == "Z34093") {
-      String response = "(+" + String(zeroPadL()) + "0m" + String(zeroPadY()) + "+" + String(zeroPadX()) + "0d+" + String(zeroPadL()) + "t00+0000+000**070\x03";
+      String response = "(+" + String(zeroPadL()) + "0m" + String(zeroPadY()) + "0+" + String(zeroPadX()) + "0d+" + String(zeroPadL()) + "t00+0000+000**070\x03";
       SerialBT.println(response);
       Serial.print("Sent response: ");
       Serial.println(response);
